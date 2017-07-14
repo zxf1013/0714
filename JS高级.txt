@@ -1,0 +1,545 @@
+1-什么是面向对象
+  	     面向过程是一种思维方式，将解决问题
+             的关注点放在，解决问题的每一个详细
+             步骤上！
+
+	     面向对象的思想
+          将解决问题的关注点，放到解决问题所需要
+          的一系列的对象身上
+
+	      面向对象其实就是对面向过程的封装
+          javascriptd 的 对象是 无序键值对儿的
+                         集合
+          对象会有 特性和行为   也就是属性和方法
+
+
+2-面向对象编程的三大特性
+           1.封装
+              将属性和方法封装成一个对象，实现一
+              些列的功能，只需要对外界暴露一些接口，
+              外界在使用对象的时候，不需要关心对象
+              的内部的功能实现。这就是封装
+
+           2.继承
+                现实生活中的继承  就是子承父业
+                在js当中，一个对象没有一些属性和方法，
+                另外一个对象有，拿过来用，就是继承
+           3-多态： js中不支持多态
+3-创建对象的方式：
+        1-字面量
+        2-使用内置构造函数
+            码复用性太差，每次创建的对象都需要手动的添
+            加所有的成员
+        3.自定义构造函数
+4-自定义构造函数：
+          构造函数是一个函数，一般用来初始化对象
+
+          构造函数的特点：
+              1.首字母大写
+              2.一般和new关键字一起使用
+              3.不需要手动书写return语句，会默认的返回
+                创建出来的对象
+
+
+          构造函数的执行过程
+              1.首先使用new关键字来创建对象
+              2.调用构造函数，将构造函数内的this赋值为
+                new创建出来的对象
+              3.在构造函数内部使用this为新创建出来的对
+                象新增成员（初始化过程）
+              4.默认的返回刚才创建出来的对象
+
+           返回值的注意事项
+            1.如果手动写return语句，
+                如果返回的是值类型的数据，则对原来的返
+                回值，没有任何影响（包括null）
+                如果返回的是引用类型的数据，则替换原来
+                的返回
+
+            扩展：构造函数能不能像正常函数一样去使用呢？
+                 可以调用，但是构造函数的内部的this，
+                 会指向window对象
+
+
+           问题：
+                通过构造函数创建出来的对象，每个对象都
+                会独占一个方法，会造成资源浪费
+
+    5-原型
+          
+          在构造函数创建出来的时候，系统会默认的帮这个
+          构造函数创建并且关联一个空的对象,这个对象就
+          是原型
+        
+            原型的访问方式
+                构造函数名.prototype
+原型的作用
+         构造函数的原型中的所有成员，都可以被该构造函数
+         创建出来的对象访问（共享）
+
+         实例：通过构造函数创建出来的对象，可以称为该构
+               造函数的一个实例
+                 实例化：通过构造函数来创建对象的过程，
+                         就是实例化
+
+
+           将方法的定义放在原型中，所有的对象就都可以去
+           共享该方法了，也就不会出现资源浪费的情况
+           
+           注意点：
+                    1.使用对象.属性名去获取对象属性的
+                      时候，会先在自身中进行查找，如果
+                      没有，就去原型中查找
+                    2.使用对象.属性名去设置对象属性的时候，
+                      只会在自身进行查找，如果有，就修改，
+                      如果没有，就添加
+                    3.一般情况下，不会将属性放在原型当中，
+                      只会将方法放在原型中
+                    4.在替换原型的时候，替换之前创建的对象，
+                      和替换之后创建的对象的原型不一致！！！
+                    5.对象关联的原型，就是创建对象那一刻，
+                      构造函数的prototype属性
+                    
+                    
+访问原型：
+                    
+       一般情况下   __ 开头的属性都是非标准的属性
+                     _开头的属性，私有的属性
+            
+                    __proto__  是一个非标准的属性，
+                    最早由firefox提出来
+
+                    一般情况下 ，不推荐使用该属性来
+                    直接操作原型对象
+                    1.由于兼容性问题，不推荐使用
+                    2.由于稳定性问题，不推荐使用
+                    3、只用于调试
+
+                  访问原型的方式
+                    1. 构造函数名.prototype
+                    2. 对象名.__proto__
+
+6-继承：
+        原型继承  使用原型实现的继承就是原型继承
+        1-利用混入的方式，为原型对象添加成员
+        2-通过替换原型对象实现继承
+
+
+7-原型对象中有一个属性  .constructor
+       这个属性就指向跟该原型对象相关的构造函数
+       在替换原型对象之后，constructor属性会丢失
+
+
+0612
+传统的OPP理论
+            使用OPP就算为了复用,将数据与功能组合到一起
+            为了更好的管理
+            对于非对象的语言就有了一套命名规范
+            C++语言约定了对象的使用方式
+类:         复用是OOP的核心,因此引入"模板"的概念,首先定义模板
+            模板规定了一个对象应该有什么属性和方法,因此将这个
+            模板成为类(CLASS)
+实例化:      先要创建类,然后利用类来创建 对象,这个过程成为实例化.
+            而类名也称为实例的类型名
+
+在JS中可以使用构造函数来创建对象,而构造函数中定义的就算对象应该有
+什么.   所以通常将构造函数称为类,构造函数的名字就是类名
+
+
+6-12 	
+1. 答疑
+  -> 编程语言入门的标准
+    1> 基本关键字与语法
+    2> 字符串操作
+    3> 集合操作( 数组与字典 )
+    4> 文件操作
+  -> 背景知识
+    js 在发明之初就是准备给不懂编程的前端人员使用的.
+    js 是一个基于对象的多范式编程语言.
+    js 在发明之前 oop 理论就已经成熟( 今天主流的 oop 理论是建立在 C++ 的基础之上的 )
+
+    传统的 oop 理论
+      -> 为什么需要使用 oop, 在 jq 中给一些按钮添加点击事件
+        $( '...' ).click( function () { ... } );  // 隐式迭代
+
+        var list = document.querySelectorAll( '...' ); 
+        for ( var i = 0; i < list.length; i++ ) {
+          list[ i ].onclick = function () { ... };
+        }
+
+        就是为了复用, 将数据与功能组合到一起.
+      -> 为了更好的管理
+        对于非对象的语言就有了一套命名规则
+        在有了对象以后, 数据与方法被组合到一起, 就是对功能与数据进行了分类. 
+        对于庞大的系统, 分类是简化的一个很好的策略.
+      -> c++ 编程语言约定了对象的使用方式, 以及后来高级语言( java, c#, php, ... )也默认使用了这些约定
+        复用是 oop 的核心, 因此引入 "模板" 的概念, 首先定义模板, 模板规定了 一个对象应该有什么属性和什么方法.
+        因此将 这个模板称为 类( class ).
+
+        因此早期的编程语言, 先要创建类, 然后利用类来创建 对象. 这个过程称为实例化. 而类名也称为该实例的类型名.
+
+      -> 在 js 中 "可以" 使用 构造函数 来创建对象, 而构造函数中定义的就是对象应该有什么成员, 功能上与模板类似.
+          因此常常将构造函数就称为 类, 构造函数的名字就是类名.
+  -> [object Object]
+    toString 方法默认打印的结果. 
+    多态就是多种状态. 
+      usb 的风扇
+      usb 的灯
+
+      usb 的硬盘
+      usb 的打印机
+
+      使用的时候只有一个操作, 就是 usb 的线插入到计算中
+
+      同一个行为, 由于本体不同, 会得到不同的结果.
+      
+      即同一个变量, 由于存储的对象不同, 调用同一个方法得到的结果不同.
+
+      在一个大型网站中, 数据是网站的核心
+      常用数据库: MySQL, 甲骨文
+
+      开发两个对象, 一个对象操作 MySQL, 一个对象操作 甲骨文. 要求操作时的方法名相同.
+      常见的操作( insert, delete, update, select )
+
+      var databaseController;
+
+      // databaseController = mySQLController;
+      databaseController = OracleController;
+
+      // 所有数据操作都使用 这个对象
+
+      由于每一个东西在计算机如果想被查看, 就必须打印出来, 那么最简单的办法就是转换成字符串
+      所以每一个对象应该具有 toString 方法.
+
+      function Person() {}
+      Person.prototype.toString = function () {
+        return '[object Person]';
+      }
+      var p = new Person();
+
+      toString 方法的设计者, 就使用 格式: [object 类型名] 的形式来设计 toString 方法
+      默认使用的是: [object Object]
+      第一个 object 是类型的含义, 指该数据是一个对象
+      第二个 Object 是描述什么类型, 即构造函数的名字
+    -> 在 js 中代码需要先解析再执行
+      在 解析的时候 {} 有两层含义, 一个是 代码块, 另一个是 对象.
+        if () { 语句 }
+        while () 语句 
+        for () 语句
+      {} 单独出现, 默认被理解为 代码块
+      如果想 {} 作为对象被解释, 需要将 {} 转换成表达式
+
+      所谓的表达式 是指由数据和运算符连接的 具有结果的 代码结构. 
+        123               常量表达式 
+        'abc' 
+        function() {}     函数表达式
+        1+2               算术表达式
+        ...
+        {}                对象的字面量表达式
+        a = 123           赋值表达式, 赋值表达式的值是 = 右边这个表达式的值
+        a = 1 + 2 + 3
+    -> 代码分析
+      var a={};
+      var b={};
+      b[a]=1;console.log(b)?
+
+      b[ '[object Object]' ]
+    -> 关于构造函数的 return
+      构造函数的作用是什么? new 这个关键字发明出来就是为了分配内存的. 因此 new 创建了对象
+      而构造函数是用于初始对象的成员. 
+
+      约定, 构造函数默认是初始化对象的, 因此返回的就是对象本身, 不用写 return.
+
+      但是如果在构造函数中写了 return, 那么 return 后如果是 值类型或 空 则无效, 
+      如果是引用类型则返回该引用类型. 那么由 new 创建的这个对象就被丢弃.
+
+      当构造函数非常复杂的时候, 需要根据传入的参数创建不同结构的对象的时候, 
+      可以考虑将代码的逻辑分组, 然后每一组都单独返回数据 则使用 return this. 
+      其目的是为了更好的维护代码.
+
+
+      $( ??? )
+        1> 选择器  
+        2> dom
+        3> 函数
+        4> html 格式的字符串
+        5> 放 jq 对象
+      
+    init = jQuery.fn.init = function( selector, context, root ) {
+      var match, elem;
+
+      // HANDLE: $(""), $(null), $(undefined), $(false)
+      if ( !selector ) {
+        return this;
+      }
+
+      // init accepts an alternate rootjQuery
+      // so migrate can support jQuery.sub (gh-2101)
+      root = root || rootjQuery;
+
+      // Handle HTML strings
+      if ( typeof selector === "string" ) {
+        if ( selector.charAt( 0 ) === "<" &&
+          selector.charAt( selector.length - 1 ) === ">" &&
+          selector.length >= 3 ) {
+
+          // Assume that strings that start and end with <> are HTML and skip the regex check
+          match = [ null, selector, null ];
+
+        } else {
+          match = rquickExpr.exec( selector );
+        }
+
+        // Match html or make sure no context is specified for #id
+        if ( match && ( match[ 1 ] || !context ) ) {
+
+          // HANDLE: $(html) -> $(array)
+          if ( match[ 1 ] ) {
+            context = context instanceof jQuery ? context[ 0 ] : context;
+
+            // scripts is true for back-compat
+            // Intentionally let the error be thrown if parseHTML is not present
+            jQuery.merge( this, jQuery.parseHTML(
+              match[ 1 ],
+              context && context.nodeType ? context.ownerDocument || context : document,
+              true
+            ) );
+
+            // HANDLE: $(html, props)
+            if ( rsingleTag.test( match[ 1 ] ) && jQuery.isPlainObject( context ) ) {
+              for ( match in context ) {
+
+                // Properties of context are called as methods if possible
+                if ( jQuery.isFunction( this[ match ] ) ) {
+                  this[ match ]( context[ match ] );
+
+                // ...and otherwise set as attributes
+                } else {
+                  this.attr( match, context[ match ] );
+                }
+              }
+            }
+
+            return this;
+
+          // HANDLE: $(#id)
+          } else {
+            elem = document.getElementById( match[ 2 ] );
+
+            // Check parentNode to catch when Blackberry 4.6 returns
+            // nodes that are no longer in the document #6963
+            if ( elem && elem.parentNode ) {
+
+              // Handle the case where IE and Opera return items
+              // by name instead of ID
+              if ( elem.id !== match[ 2 ] ) {
+                return rootjQuery.find( selector );
+              }
+
+              // Otherwise, we inject the element directly into the jQuery object
+              this.length = 1;
+              this[ 0 ] = elem;
+            }
+
+            this.context = document;
+            this.selector = selector;
+            return this;
+          }
+
+        // HANDLE: $(expr, $(...))
+        } else if ( !context || context.jquery ) {
+          return ( context || root ).find( selector );
+
+        // HANDLE: $(expr, context)
+        // (which is just equivalent to: $(context).find(expr)
+        } else {
+          return this.constructor( context ).find( selector );
+        }
+
+      // HANDLE: $(DOMElement)
+      } else if ( selector.nodeType ) {
+        this.context = this[ 0 ] = selector;
+        this.length = 1;
+        return this;
+
+      // HANDLE: $(function)
+      // Shortcut for document ready
+      } else if ( jQuery.isFunction( selector ) ) {
+        return typeof root.ready !== "undefined" ?
+          root.ready( selector ) :
+
+          // Execute immediately if ready is not present
+          selector( jQuery );
+      }
+
+      if ( selector.selector !== undefined ) {
+        this.selector = selector.selector;
+        this.context = selector.context;
+      }
+
+      return jQuery.makeArray( selector, this );
+    };
+
+    -> == 与 ===
+      在比较是 值类型, == 比较转换后的值, === 比较类型和值
+      在比较的是 引用类型, == 和 === 都是在比较地址
+      在比较的是值类型与引用类型的时候, == 会转换成值类型再比较, === 直接是 false
+    -> 抽象性
+      在研究具体事务的时候, 根据研究的目标从具体事务中抽取需要的特质. 那么将这些特质
+      组合到一起, 来表征这个具体的事务, 称为 对这个具体事务的抽象.
+
+      对象在确定具体环境之前 都无法明确表示的意义.
+
+      鸭子辨型, 像你就是
+  
+    -> 练习
+      var data = [
+        { name: 'jim1', age: 19, gender: '男' },
+        { name: 'jim2', age: 29, gender: '男' },
+        { name: 'jim3', age: 39, gender: '男' },
+        { name: 'jim4', age: 49, gender: '男' },
+      ];
+
+2. 为什么要使用 DOM
+    <div></div><div style="color:red"></div><div></div>
+    给 第二个 div 增加 font 样式
+
+3. ES5 中对数组的扩展
+    forEach 是数组的方法, 其语法为
+      数组.forEach( callback )
+    回调函数的参数是 数组项, 数组当前项索引
+    其作用是遍历数组的每一个元素
+    例如:
+      var arr = [ 1, 2, 3, 4, 5 ];
+      arr.forEach( function ( v, i ) {
+        console.log( v + ', ' + i );
+      });
+    
+
+    map 是数组方法, 其原意为映射. 其含义是利用映射关系将一个数组变成另一个数组.
+    其语法:
+      数组.map( callback )
+    回调函数的参数是 数组项, 数组的当前项的索引
+    数组会遍历每一个元素, 并且调用 回调函数来处理每一个元素
+    回调函数的返回值描述要将数组的每一个元素变成什么
+    例如:
+      将数组 [ 1, 2, 3 ] 中的每一个元素扩大一倍
+      var newArr = [ 1, 2, 3 ].map( function ( v, i ) {
+        return v * 2;
+      });
+    
+
+
+    filter 是数组方法, 其原意是筛选. 语法与 forEach map 都一样
+    作用 会遍历数组的每一个元素, 并利用 回调函数处理每一个元素
+    回调函数返回 boolean 值, 表示该元素是否要保留下来
+    例如: 
+      将 数组 [ 1, 2, 3, 4, 5 ] 中所有的奇数 留下, 偶数删除
+      [ 1, 2, 3, 4, 5 ].filter( function ( v, i ) {
+        return v % 2;
+      });
+
+    任务: 比较 数组中 forEach 与 map 和 jquery 的 each 与 map 方法的异同.
+  
+4. ES5 中 给 Object 提供的新方法
+    Object.keys( 对象 )   将对象的每一个属性名取出来构成数组
+    Object.values( 对象 ) 将对象的每一个属性值取出来构成数组
+    例如:
+      var obj = { name: 'jim', age: 19, gender: '男' };
+      Object.keys( obj );   // => [ 'name', 'age', 'gender' ];
+      Object.values( obj ); // => [ 'jim', 19, '男' ]
+
+5. 使用 OOP 的方式来思考怎么实现 table
+    可以考虑找一个叫做 TableView 的对象, 告诉他, 我要创建一个表格
+    如果这个构造函数写好了, 那么我们可以怎么来创建 table 呢?
+
+    var tableView = new TableView( data );
+
+    怎么将其加入到 HTML 页面中?
+
+    如果 tableView 不是 DOM 对象, body.appendChild( tableView ) 就不可能加入
+
+
+    新的需求, 对数据可以增删改
+    假设需求是 增加一行数据: { name: 'tom', age: 18, gender: '男' }
+
+    思路一: 扩展原生对象
+
+    如果 TableView 返回的不是 DOM 对象, 那很显然 就是 一个 形如 { } 的 对象
+    那么 DOM 对象 table 在哪里? 就存储在其属性中, 名字随意( DOM )
+
+
+    将问题简化, 创建一个 DivView, 他的作用是 创建 div 标签
+
+    考虑
+      function DivView( ) {
+        var div = document.createElement( 'div' );
+
+        this.appendTo = function ( id ) {
+          // 将我们创建的 div 加到 参数 这个 id 所描述的元素中
+          var dom = document.getElementById( id );
+          dom.appendChild( div );
+        }
+
+      }
+
+      var div = new DivView();
+
+      div.appendTo( '#body' )
+
+
+
+
+      div.appendTo( 'dv1' );  // 含义, 将这个对象加到 dv1 表示的元素上
+      div.appendTo( 'dv2' );  // 含义, 将这个对象加到 dv2 表示的元素上
+
+
+      可以将 TableView 的雏形写出来了
+
+      function TableView ( data ) {
+        // 利用算法( 前面生成 table 的方法, 得到 table 对象 );
+        var table = ...;
+
+        this.DOM = table;
+      }
+
+      TableView.prototype.appendTo = function ( id ) {
+        var dom = document.getElementById( id );
+        dom.appendChild( this.DOM );
+      };
+
+
+6. 添加增加数据的需求
+    var table = new TableView( data );
+    table.appendTo( 'dv' );
+
+    table.addData( { name: 'jim', age: 19, gender: '男' } );
+
+    实现的思路呢?
+    这里的实现方式很多, 可以采用保守处理办法.
+    1> 将由数据生成 table 对象的方法封装起来, 命名为 render
+    2> 将 构造函数的 参数 data 作为属性存储
+    3> addData 的实现可以修改为
+      function ( obj ) {
+        this.data.push( obj );
+        this.DOM = render( this.data );
+        ...
+      } 
+    不去做复杂的dom操作, 而是重新生成一个新的 table 对象, 替换之前的那一个
+
+7. 添加删除的方法
+    table.removeData( index )
+
+
+
+
+
+
+
+
+
+
+
+
+
+

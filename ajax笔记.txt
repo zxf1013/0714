@@ -1,0 +1,336 @@
+AJAX
+
+第一天
+
+1、通俗的讲，能够提供某种服务的机器（计算机）
+   称为服务器
+
+2、按照不同的划分标准，服务可划分为以下类型：
+	1、按服务类型可分为：文件服务器、数据
+           库服务器、邮件服务器、Web 服务器等；
+	2、按操作系统可分为：Linux服务器、
+           Windows服务器等；
+	3、按应用软件可分为 Apache服务器、
+           Nginx 服务器、IIS服务器、Tomcat
+           服务器、Node服务器等。 谈资
+
+
+3、 C/S结构：
+	C:client 客户端  用户必须在电脑上安装
+          对应的客户端软件  QQ  迅雷  快播
+	S:server 服务器
+
+	优点：用户体验比较好
+	缺点： 需要下载 更新， 占用空间
+
+	B/S结构：
+	B:Browser 浏览器  用户不需要安装任何客
+          户端软件，只需电脑有浏览器即可
+	S:服务器
+
+	优点：不需要安装任何客户端 
+	确定： 用户体验 没有c/s好
+
+	
+
+4、网络基础
+	ip： 在互联网中 没台电脑的身份证号
+		缺点：没有意义 不方便记忆
+	域名：
+		解决ip地址 难以记忆的问题
+		www.baidu.com
+		www.jd.com
+
+	DNS:记录了 ip和域名的对应关系
+	
+	本机的host文件中也记录有ip和域名的对应
+        关系，在浏览器中输入域名是 会优先查找本
+        地的host文件，如果拿到ip 就直接访问服
+        务器， 如果host文件中没有记录，则再去
+        查找dns服务器，拿到ip,在访问服务器
+	C:\Windows\System32\drivers\etc\
+           hosts		
+	
+	端口： 定位到程序  80 
+
+
+5、服务器配置：
+	httpd.conf
+	 1、设置  根目录
+	 	documentRoot   2个地方  178  205  
+	 2、 1个权限  234
+	 	 #deny  from all  
+	 	  allow from all   
+	 3、 释放了虚拟主动的 注释   vhost 
+             468
+
+    httpd-vhosts:
+    	复制 虚拟主机的配置 格式
+    	修改了 documetroot  根目录
+    	域名    别名 
+
+    	    DocumentRoot "e:/www/test/"
+		    ServerName  test.com
+		    ServerAlias www.test.com   
+
+    hosts文件:
+    	绑定ip域名的关系
+    	127.0.0.1   www.study.com
+    	127.0.0.1    study.com  
+    	
+6、基本语法
+	window  + apache +mysql + php
+
+	php 是一个后台的编程语言：需要编译才能
+        执行 
+
+
+	基本语法：
+	<?php   ?>
+
+	echo 向客户端输出信息
+
+	变量：
+	 1、变量以$开头 字母/数字/下划线 不能
+            以数字开头
+	 2、大小写敏感（区分大小写）
+	
+	
+
+	 echo 用于输出简单的数据类型
+	 print_r() 用于输出复杂的数据类型
+	 var_dump() 用于输出数据的详细信息
+
+
+	遍历关联数组的语法格式：
+	 foreach ($variable as $key => 
+         $value) {
+		# code...
+	}
+
+
+
+  7、 表单处理
+             name 属性的是用来提供给服务端
+             接收所传递数据而设置的
+	     action属性设置接收数据的处理
+             程序
+		method属性设置发送数据的方式
+                get post 
+
+		当上传文件是需要设置 enctype="multipart/form-data"，且只能post方式
+		$_GET接收 get 传值
+		$_POST接收 post 传值
+		$_FILES接收文件上传
+
+
+		get请求：在地址栏后面拼接的方
+                         式传递数据，只能传输
+                         文本，大小有限制4kb 
+		post请求： 大小没有限制，相对
+                           安全
+
+	php常用方法：
+		in_array() 是否在数组中
+		count() 计算数组长度
+		array_key_exists ()检测数组
+                中是否存在key
+		file_get_contents读取文件
+		move_uploaded_file() 移动上
+                传的文件
+
+                in_array(a,b) 是否在数组中
+		array_rand();随机获取数组的下
+              标
+		count() 计算数组长度
+		move_uploaded_file 移动上传的文件
+		array_key_exists ()检测数组中是否存在key
+		file_get_contents读取文件
+
+
+
+第二天
+http协议：
+   即超文本传输协议，网站是基于HTTP协议的，
+   例如网站的图片、CSS、JS等都是基于HTTP协议进行传输的。
+   HTTP协议是由从客户机到服务器的请求(Request)和从服务器到客户机的响应(Response)进行了约束和规范		1xx：指示信息--表示请求已接收，继续处理
+	2xx：成功
+	3xx：重定向--要完成请求必须进行更进一步的操作
+	4xx：客户端错误
+	5xx：服务器端错误
+
+	常见的有200代表成功、304文档未修改、403没有权限、404未找到
+
+	GET和POST请求方式的区别：(面试)
+	1、GET没有请求主体  xhr.send(null)
+	2、GET可以通过在请求URL上添加请求参数  
+	3、POST可以通过请求主体发送数据     xhr.send('name=itcast&age=10')
+	4、POST需要设置请头部    Content-Type:application/x-www-form-urlencoded
+	5、GET效率更好（应用多）
+	6、GET大小限制约4K，POST则没有限制 可以用于上传大文件
+
+
+ajax:
+   Ajax 特点: 可以在不刷新页面的情况下，更新网页的局部数据;
+   Asynchronous  Javascript  And  XML
+   AJAX 不是一门的新的语言，而是对现 有持术 的 综合利用。
+
+   异步： XMLHttpRequest   http   Date  Math  FileReader  
+   执行的属顺序和书写顺序无关 其优势在 于不阻塞程 序的执行， 从而提升 整体 执行 效率。
+
+   xhr.open() 发起请求，可以是get、post方式
+   xhr.setRequestHeader() 设置请求头
+   xhr.send() 发送请求主体get方式使用xhr.send(null)
+		
+   xhr.onreadystatechange = function () {} 监听响应状态
+		
+   xhr.status=200 响应状态码  成功 ok
+   xhr.readyState = 4时，DONE 响应完成
+
+   xhr.readyState = 0时，UNSENT open尚未调用
+   xhr.readyState = 1时，OPENED open已调用
+   xhr.readyState = 2时，HEADERS_RECEIVED 接收到头信息
+   xhr.readyState = 3时，LOADING 接收到响应主体
+   xhr.readyState = 4时，DONE 响应完成
+
+
+第三天
+
+一、XMLHttpRequest对象详解
+
+	xhr.open() 发起请求，可以是get、post方式
+	xhr.setRequestHeader() 设置请求头
+	xhr.send() 
+
+	xhr.onreadystatechange = function () {} 监听响应状态
+
+		xhr.readyState = 4时，DONE 响应完成	
+		xhr.status表示响应码，如200
+
+		常见的有200代表成功、304文档
+                未修改、
+		403没有权限、404未找到、500服
+                务器错误
+		xhr.statusText表示响应信息，
+                如OK
+
+	xhr.getAllResponseHeaders() 获取全部
+        响应头信息
+	xhr.getResponseHeader('key') 获取指定
+        头信息
+
+	页面跳转：
+		header('location:http://www.
+                baidu.com'); 直接跳转
+		header('refresh:3;url="./01.
+                html"');     定时跳转
+
+
+
+二、GET和POST请求方式的区别：(面试)
+	1、GET没有请求主体  xhr.send(null)
+	2、GET可以通过在请求URL上添加请求参数  
+	3、POST可以通过请求主体发送数据 
+           xhr.send('name=itcast&age=10')
+	4、POST需要设置请头部  
+           Content-Type:application/
+           x-www-form-urlencoded
+	5、GET效率更好（应用多）
+	6、GET大小限制约4K，POST则没有限制
+
+
+
+三、XML  可扩展的标记语言
+	HTML:  超文本标记语言  
+	共同点：语法中都会用到标签  都具有描述
+                性
+	区别：
+		HTML：用于展示数据 		
+		XML： 传输数据和存储数据
+		
+	语法规则：
+		1、必须有一个根元素
+		2、不可有空格、不可以数字或.
+                   开头、大小写敏感
+		3、不可交叉嵌套
+		4、属性双引号（浏览器自动修正
+                   成双引号了）
+		5、特殊符号要使用实体
+		6、注释和HTML一样
+
+		注意：
+			服务器需要设置： Content-Type:text/xml  
+			客户端用 xhr.responseXML来接受
+
+		其解析过于复杂并且体积较大，所以实现开发已经很少使用了。
+
+
+四、JSON数据格式
+
+	js中的数组，对象   var arr=[12,2,2,3];  var obj={ name:'zs',age:18 }
+
+	php中  $arr=array(1,2,3,4); 
+
+	JSON格式本质是就是特殊格式的字符串
+
+	语法规则：	
+		1、数据在名称/值对中
+		2、数据由逗号分隔(最后一个健/值对不能带逗号)
+		3、花括号保存对象方括号保存数组
+		4、使用双引号
+
+	JSON数据在不同语言进行传输时，类型为字符串，不同的语言各自也都对应有解析方法，需要解析完成后才能读取
+
+	1、Javascript 解析方法
+	eavl()
+	
+	JSON对象   
+	JSON.parse()   json->对象
+	JSON.stringify()； 对象->json
+	
+	2、PHP解析方法
+	json_encode()   php关联数组（对象） 
+                        ->json
+	json_decode();  json->php 对象
+
+	JSON体积小、解析方便且高效，在实际开发
+        成为首选。
+
+
+	4、jQuery为我们提供了更强大的Ajax封装
+
+		$.ajax({}) 可配置方式发起
+                           Ajax请求
+		$.get() 以GET方式发起Ajax请求
+		$.post() 以POST方式发起Ajax
+                         请求
+		$('form').serialize() 序列化
+               表单（即格式化key=val&key=val）
+
+		url 接口地址
+		type 请求方式
+		timeout 请求超时
+		dataType 服务器返回格式
+		data 发送请求数据
+		beforeSend: function () {} 请求发起前调用
+		success 成功响应后调用
+		error 错误响应时调用
+		complete 响应完成时调用（包括成功和失败）
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+

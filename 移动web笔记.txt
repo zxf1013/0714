@@ -1,0 +1,169 @@
+5-22第一天
+1.视口
+  在移动端 网页不予的宽度并不是基于浏览器窗口的
+  宽度,而为基于视口,一般宽度为980
+
+解决办法:设置移动端视口的宽度<meta name='viewp
+ort'content="width=device-width,maxmum-scale
+=1.0,minmum-scale=1.0,initial-scale=1.0,use-
+scalable=no"
+让视口的宽度等于设备的宽度 width=device-width
+视口最大缩放比例1.0      maximum-scale=1.0
+视口最小缩放比例1.0      minimum-scale=1.0
+初始缩放比例             initial-scale=1.0
+禁止用户手动缩放比例1.0   use-scalable=no
+视口：用于在移动承载网页的区域
+
+         <meta name="viewport" content="width=device-width, user-scalable=no,initial-scale=1.0, maximum-scale=1.0,minimum-scale=1.0"/>
+
+              width=device-width  设置视口的宽为当前设备的宽度
+              user-scalable=no   用户不能手动缩放页面
+              initial-scale=1.0  默认人缩放比例1.0
+              maximum-scale=1.0  最大缩放比例1.0
+              minimum-scale=1.0  最小缩放比例1.0
+
+
+      px em  相对单位
+      pt  cm  km  mm  都是绝对单位
+      point
+
+
+2.响应式
+        针对任意设备,网页内容进行 完美布局的一
+        种机制
+2.1设备检测
+   检测是屏幕的宽高.....检测屏幕的宽度
+   1.直接用js检测
+   2.Css3提高的 媒体查询的技术
+
+2.2根据不同的设备 动态来改变盒子的样式 网页布局
+   根据不同不同宽度  来改变网页布局
+  
+如何实现:  使用css3的媒体查询的技术来动态检测屏幕宽度,
+           很近不同宽度 来改变网页布局
+
+
+3.CSS3中的 Media Query（媒体查询）
+    通过查询screen的宽度来指定某个宽度区间的网页布局。
+    @media screen and (max-width: 992px) and (min-width: 768px){
+       .box{
+          color:red;
+         }
+    }
+    超小屏幕（移动设备）    768px以下
+    小屏设备    768px-992px
+    中等屏幕    992px-1200px
+    宽屏设备    1200px以上
+
+第二天
+
+1、标签属性
+    这些属性都是提供给屏幕阅读器的，我们可以忽略。
+    role
+    aria-*
+    class="sr-only"
+
+指定插件类型，和被控制的目标元素
+    data-toggle
+    data-target   href
+    /*a标签也可以通过href来指定被控制的目标元素*/
+
+
+
+3、Touch事件
+
+    事件类型
+    touchstart: 手指触摸屏幕时触发
+    touchmove: 手指在屏幕上移动时触发
+    touchend: 手指离开屏幕时触发
+
+
+	TouchEvent对象
+      Touches: 位于屏幕上的所有手指的列表
+      targetTouches: 位于该元素上的所有手指的列表
+      changedTouches：只会记录最后一次改变的数据
+      touchstart时包含刚与触摸屏接触的触点，touchend时包含离开触摸屏的触点
+      注：没有对比出touches同targetTouches的差异，推荐使用targetTouches
+      注意：在touchend事件结束时候 event只会记录changedtouches
+
+Touch对象
+    clientX:触摸目标在视口中的X坐标。
+    clientY:触摸目标在视口中的Y坐标。
+    pageX：触摸目标在页面中的x坐标。
+    pageY：触摸目标在页面中的y坐标。
+    screenX:触摸目标在屏幕中的x坐标。
+    screenY:触摸目标在屏幕中的y坐标。
+
+Carousel 控制
+    $(.carousel）.carousel('prev')切换到上张
+    $(.carousel）.carousel('next')切换到第下张
+    $(.carousel）.carousel(n)    切换到第n张
+    $(.carousel）.carousel('pause') 暂停
+    $(.carousel）.carousel('cycle') 轮播
+
+jq获取宽度
+    width()         获取的是content的宽度
+    innerWidth()    获取的是content+padding的宽度
+    outerWidth()    获取的是content+padding+border 的宽度
+    outerWidth(true) 获取的是content+padding+border+margin的宽度
+
+1.1.6.	Less安装
+  1、关闭杀毒软件
+  2、安装node ， 下一步 ...   不要出现中文路径
+           2.1安装成功   win+r  输入cmd 打开 控制台
+           2.2 输入 node -v 可以看到版本号 即安装成功
+   3、 拷贝npm文件夹中 的文件
+           3.1打开  文件夹 C:\Users\wcs\AppData\Roaming\npm
+           3.2把npm.zip 文件解压中的文件，复制到
+                  C:\Users\wcs \AppData\ Roaming\npm文件夹中（不要外面的npm文件）
+          3.3拷贝完成后， win+r  输入cmd 打开 控制台输入lessc -v
+          看到版本号 即安装成功
+
+
+5-26
+1、网页布局
+
+   响应式   一个页面  可以适配所有的设备
+   pc端+移动端页面
+
+   技术：  媒体查询   动态监测屏幕的宽度   （必须用到的技术）
+
+   单位：   百分比 %   rem    px  em
+
+
+   自适应的布局方式：
+
+      栅格系统： 媒体查询+百分比     只能宽度自适应
+      伸缩布局：                    只能宽度自适应
+      百分比单位：                  只能宽度自适应
+      rem单位：                     可以实现宽高自适应
+
+
+
+
+2、在移动端:
+  1、适口设置 viewport
+  2、浏览器版本都是最新的  webkit的浏览器  
+     高级浏览  -webkit-
+     要对webkit内核的浏览器进行兼容
+  3、大量使用css3等新技术 前面的技术都可以用的；
+
+  4、不需要考虑ie等低版本的兼容性问题
+     JQ:处理的很多低版本浏览器兼容性处理的非常
+     好，并不适合在移动端开发中使用
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

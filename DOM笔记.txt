@@ -1,0 +1,954 @@
+人生不是一场物质的盛宴，而是一次灵魂的修炼，使它在谢幕之时比开幕之处更为高尚。
+
+
+要每天多努力一些，比别人多努力一个小时。
+
+我若盛开 蝴蝶自来 我若精彩 天自安排
+
+
+键值对
+
+一种对应关系（数据结构）
+
+json轻量级的一种数据交换格式 javascript object notation js的对象表示法
+
+对象的定义
+ var obj=new object();构造函数定义形式
+ var obj={
+  键名：键值，
+  键名：键值，
+  键值对，
+  键值对
+}；字面量定义形式
+
+
+
+
+
+
+this 
+指的是 当前方法属于谁this 指向谁
+对象下面的方法 里面是this 指的当前方法是谁 指的
+是谁
+直接执行 指的是前面的那个对象
+
+函数直接调用 ：内部的This 指向全局window
+
+函数由事件来调用：函数内的this 指向触发事件前面
+的那个元素（页面中的元素也是对象）
+
+如果一个方法被某个对象去调用 该方法内部的this 
+指向这个对象
+
+ 
+
+
+
+对象
+var student=new object;
+student.name="";
+student.age=18;
+student.sex="";
+student.dancing=function(){
+console.log(student.name+"正在唱歌");
+}
+student.shopping=function(){
+console.log(student.name+"正在唱歌");
+}
+console.log("我的名字是"+student.name+",我今年"+student.age+"岁了");
+student.dancing();
+student.shopping();
+
+一般对象都是无需的键名（属性名）只能用for...
+in去遍历
+
+数组是对象 是一种特殊的对象 键名是下标（索引）
+键名是有规律的序列对象
+
+对象的属性  用.（常规属性）或者[]访问（常规+变
+量（常规变成字符串必须用""））
+
+
+for in语句遍历对象
+for(var k in student){
+console.log(k);(键名)
+console.log(student[k]);（键值）
+}
+
+
+构造函数
+区别于普通函数 这个函数用来创建对象的 
+
+有个不成文规定  名称 首字母要大写 （为了区别普
+通函数）
+
+里面的属性和方法全部挂载this这个对象身上 （this
+是一个隐式的对象 像是一个模型）
+
+构造函数内部 不需要new object 也不需要  返回了
+（自动帮你做好了）
+
+a instanceof  b  看看a是不是由构造函数b所创建
+出来的 如果是true 否则false,
+
+x-y之间的随机整数 
+Math.round(Math.random()*(y-x))+x 
+
+值传递和引用传递（址传递）
+
+var  num= 10；
+function fn(num){
+num+=5;
+alertt(num);
+}
+fn(num);15
+alert(num);10
+
+
+内置对象
+
+innerHTML(设置精确控制元素里面的内容  可以读取
+ 可以写入 如果想追加　a.innerHTML+="lnfklj")
+
+Interval
+
+数组方法
+
+push:
+作用：往数组的末尾添加一个或者多个元素
+参数：一个或者多个元素
+返回值：返回元素改变后的数组长度
+注意：原数组会发生变化
+
+pop
+
+作用：从数组最后删除一项
+参数：无
+返回值：删除后的那个元素
+注意：圆数组会发生改变
+
+
+unshift
+ 
+作用：从数组最前面添加进去一项或者多项
+参数：一个或者多个
+返回值：改变后数组长度
+注意：
+
+shift
+作用：从数组前面删除一项
+参数：无
+返回值：删除后的那个元素
+注意：圆数组会发生改变
+
+reverse
+作用：翻转数组
+参数：无
+返回值：翻转后的数组
+注意：原数组会发生改变
+
+sort
+作用：排序的 默认按照字符串的方式进行排序（按照
+自符编码 逐位进行比较 排序）
+sort（function(){return Math.random()-0.5}）
+参数：无0（第二种情况 一个匿名函数）
+
+返回值：
+注意：
+
+
+concat
+作用：用来链接数组或者元素
+参数：需要链接的数组或者元素
+返回值：链接后的心数组
+注意：原数组不会发生变化
+
+slice
+作用：用来截取数组的方法
+参数：第一个参数 开始截取的位置（下标） 第二个参
+数 默认到最后 结束截取的位置（不包含结束位置）
+返回值：截取后的心数组
+注意：原数组没有发生变化
+
+splice
+作用：删除数组的方法
+参数：第一个参数：开始删除的位置 第二个参数 默
+      认到最后 代表删除的个数 第三个参数 需要添加的元 
+      素
+返回值：删除的那些项
+注意：原数组会发生变化
+
+
+join
+作用：通过一个连接符去将数组转成字符串
+参数：连接符
+返回值：
+注意：
+
+
+split（）
+作用：通过一个分隔符去将字符串转成数组
+
+
+
+
+字符串方法
+charAt 在字符串中根据对应下标 找对应字符
+charCodeAt 根据下标对应字符的字符编码
+fromCharCode 根据对应的编码 找到对应字符
+
+
+indexof()在字符串中查找对应字符，返回对应字符的
+         下标 如果找到该自负 则返回该下标 如果
+          找不到 返回-1
+          第一个参数要找到字符 第二个自负是我们
+          开始找的位置 默认从0开始
+
+lastIndexof（）
+在字符串中从后往前找字符 找到返回对应下标 找不到返回-1
+
+slice 用来截取字符串 第一个参数开始截取的位置 第二个参数如果不写 则默认截取到最后结束截取的位置（不包含结束位置）可以支持负数不支持颠倒顺序
+
+substring
+支持颠倒顺序 不支持负数 （碰到当0处理）
+
+
+DOM
+document object model  文档对象模型
+
+把HTML文件看成是一个文档,所有的标签和内容都是在文档中(document)
+
+DOM的作用
+操作页面中的元素
+
+文档:指的是HTML文件或者XML文件
+
+节点Node:页面上所以内容都叫节点(标签,文本,属性)
+元素Element:页面上所有标签
+文档元素:文档中第一个元素
+
+获取元素的方式:
+
+document.getElementById("id属性的值");获取的是一个对象
+Document.getElementsByTagName("标签的名字");获取的是一个由好多标签对象组成的数组(伪元素)
+
+
+注册事件
+
+对象.on事件名字=事件处理函数
+
+API 一套工具(或者方法)
+
+JS最初就是为了验证表单数据
+
+在HTML标签属性的值都室友双引号,如果在该属性的值在写JS代码用单引号)
+
+
+
+css中属性如果是多个单词,在DOM操作中把-(横杠)
+
+设置元素的类样式 className
+
+
+textarea 
+
+是成对的标签,中间的内容可以使用innerText设置
+
+也属于表单的标签,可以使用Value属性设置
+
+
+
+页面中的顶级对象不是HTML是DOCUMENT
+
+xml:一个标签文件,标记语言
+xml 文件中的代码都是小写的,尽可能的是成对的(有开始有结束)
+    写html的代码遵循的标准
+
+HTML 文件或者XML文件中所以的内容叫文档,把整个文件看成是一个对象,形成了一个树形结构图
+
+
+
+
+innerHTML和innerText
+
+在设置文本内容的时候,innerHTML和innerText是一样的
+innerText如果设置的是标签内容,那么在页面中展示的时候仍然是以文本的方式展示
+
+
+
+
+innerText 
+
+
+如果一个浏览器不支持这个属性,得到的结构是undefined,这种判断方式
+
+IE8浏览器不支持textContent,innerText目前谷歌,火狐,E11都支持
+
+
+自定义属性设置和获取
+setAttribute("属性的名字",值)
+getAttribute("属性的名字"),返回的是字符串类型的
+
+
+
+parentnode 
+
+parentElement
+
+firstChild
+
+firstElementChild
+
+lastChild
+
+lastElementChild
+
+previousSibling
+
+previousElementSibling
+
+
+
+页面加载提升客户体验
+
+动态创建元素的三中方式:
+
+document.write("标签及内容"),直接写入到了文档中
+
+对象.innerText="标签及内容"
+
+
+
+window
+
+win.open 打开新的窗口
+
+win.close 关闭刚才打开的窗口
+
+win.moveTo(100,100) 移动到某个位置
+
+win.moveBy(20,20) 每次移动多少
+
+win.resizeTo(400,400)改变大小
+
+win.resizeBy(30,30) 每次改变30,30
+
+location
+
+.href="地址";跳转
+
+.assgin("地址");
+
+.reload();刷新
+
+userAgent  浏览器信息
+
+
+window.onload=function(){
+
+console.log();
+
+}
+在所有的内容加载完毕之后出现
+
+在页面关闭之前执行
+
+window.onbeforeunload=function(){
+
+alert();
+
+}
+
+4.27
+横向滚动条
+
+word-break:
+
+三大系列
+1.offset系列
+offsetLeft: 元素相对左边的距离
+offsetTop : 元素相对于上边的距离
+offsetWidth :元素的宽度(有边框)
+offsetHeight:  元素的高度
+
+
+2.scroll系列
+scrollWidth:元素内容实际的宽度(无边框),无内容就是元素的宽度
+scrollHeight:元素内容实际的高度(无边框),无内容就是元素的高度
+scrollLeft:元素内容向左卷曲出去的内容(向左滚出去的内容)
+scrollTop:元素内容向上卷曲出去的内容(向上滚出去的内容)
+
+
+获取页面向上卷曲出去的距离
+
+document.body.scrollTop
+
+
+向左
+function getScrollLeft(){
+
+return window.pageXOffset||document.body.scrollLeft||document.documentElement.scrollLeft||0
+
+
+
+
+
+}
+
+
+
+4.28事件对象:用来获取与当前事件相关的一些属性和方法
+
+ie8及其一下版本的浏览器不支持,以事件参数的形式获取事件对象
+获取事件对象的方式:console.log(window.even)
+
+
+
+5.4
+MDN  http://developer.mozilla.org/zh-CN
+
+菜鸟教程 http://www.runoob.com
+
+
+绑定和解绑事件相对应
+
+addEventListener()..>removeEventListener()
+
+attachEvent..>detachEvent()
+
+onclick=function(){}...>onclick=null/removeAttribute("onclick")
+
+
+两种绑定事件方式的区别
+
+1.浏览器兼容不同
+addaeventListener:IE9+/chrime/firefox
+attachEvent:IE6-10
+
+2.绑定事件名称不同
+addaeventListener:'click'直接通过事件名来绑定
+
+attachEvent:'onclick'
+
+3.事件处理程序中this指向不同
+addaeventListener:this指向当前的DOM对象
+attachEvent:this指向window对象
+
+4.事件对象中的属性不同
+
+Event.eventphase 事件阶段
+
+第三个参数是true,为捕获阶段1,单击事件本身为2
+第三个参数为false,为冒泡阶段3,单击本身为2
+
+event.srcElement(IE)
+event.target(火狐)
+event.currentTarget 绑定谁是谁
+
+
+5-7
+
+
+. 除了回车换行以外的任意字符
+* 0到多个
++ 一个到多个
+? 
+
+
+
+exec作用:
+
+     对字符串执行搜索匹配操作,将符号规则的字符串提取出来
+
+返回值:数组或者null(匹配失败的时候)
+
+(?:)表示:提高优先级,但是不会不会匹配的内容
+
+
+验证邮箱地址
+  
+    注册案例中,让用户输入邮箱地址,此时用户应该值把邮箱地址输入进来,如果用户输入邮箱地址以外的内容,此时,应该校验(加入^$开头和结尾,只允许字符串中出现,正则表达式嫩egg匹配内容)
+
+trim 用来去除字符串两端的空格,如果只含有空白字符,那么调用该方法
+     会将空白字符修改为''空字符串
+
+decodeURI 将编码内容进行解码
+encodeURI 将字符串惊喜 编码
+
+
+j-Qury
+
+入口函数: 1.$(document).ready(function(){})
+          2.$(function(){});
+
+
+
+j-Query入口函数和window.onload的区别:
+  1.能够使用的次数不同,覆盖的问题
+    onload只能使用一次
+    $(function(){});能够写很多次
+  2.执行时机不同
+    onload是要等待页面中所有内容以及外部资源全部加载完毕以后再执行
+    j-Query的入口函数会在文档加载完毕以后就会执行相应的代码
+    j-Query
+
+
+并集选择器 li,a,span
+
+交集选择器 li.cls
+    获取页面中所有li元素并且这个li元素中包含cls
+
+*通配符选择器:将页面中所有的元素全部获取
+
+>子代选择器 $('div>span')
+空格 后代选择器 $('div span')或者$('div').find('span')
+
+siblings()获取当前元素的所有兄弟元素
+
+index() 获取当前元素的索引号
+
+jQuery对象和DOM对象的相互转换
+
+jQuery对象--DOM对象  $('div')[3]/$('div').get(2)
+DOM对象--jQuery对象  $(DOM对象)
+
+
+过滤选择器
+   :odd:奇数选择器
+   :even:偶数选择器
+   :eq(index):相等选择器
+   :lt:获取比index小的元素
+   :gt:获取比index大的元素
+
+
+
+5-8
+1.
+判断有没有类样式:hasClass
+添加类样式:addClass
+删除类样式:removeClass
+切换类:toggleClass
+
+
+2.
+show()/show(1000)/show('slow')/show(1000,function(){})
+
+hide()/toggle()
+
+1.不传参数,是没有动画效果,直接展示
+2.传入数值 这个数值就是毫秒数
+3.传入字符串 但只能用 fast normal slow
+4.传入第二个参数,是一个回调函数,表示该动画执行完毕以后,立马执行
+
+
+3.
+slidedown()滑入/slideDown(1000)/slideDown('fast')/slideDown('fast',function(){})
+
+slideUp()/slideToggle()
+
+1.不传参数 也有动画效果,相当于传入normal
+2.数值和字符串
+3.传入两个参数,第一个表示动画执行时长,第二个参数
+
+
+4.
+animate({},1000,swing或者linear,回调函数)
+1.第一个参数表示要执行动画效果的样式设置
+2.第二个参数表示动画执行的时间长度
+3.第三个参数表示动画效果
+4.第四个参数表示动画执行结束后.立马执行回调函数
+
+stop()结束动画
+
+
+
+5.动态创建元素
+$('').css().html('').appendTo('')
+
+
+6.追加元素
+appendTo()  把所有匹配的元素追加到另一个指定的元素集合中  将调用方法的jquery对象追加到参数对象中
+append()    向每个匹配的元素内部追加内容  append方法不能使用选择器参数
+
+prepend()   向所有匹配元素内容的开始处插入内容
+
+prependTo() 把所有匹配的元素前置到另一个指定的元素集合中
+
+$('A').prependTo('B')把A前置到B中
+
+
+5-11
+小星星音乐谱:1155665  4433221 5544332 5544332 1155665 
+1.触发事件
+
+triggerHandler和trigger的区别:
+   triggerHandler()仅仅是调用事件出来程序,不会触发浏览器的默认行为
+   trigger()  既能调用事件处理程序,也能执行浏览器的默认行为
+
+事件对象
+event.stopPropagation()；	阻止事件冒泡
+event.preventDefault();?	阻止默认行为
+
+
+5-12html5
+1.meta作用:勇于描述网页的元信息 元:自身
+
+2.标签语义化:在合适的地方用合适的标签
+
+3.语义化标签
+<header> 表示页眉
+<nav> 导航
+<section> 表示区块
+<article> 表示文章 如文章、评论、帖子、博客
+<aside> 表示侧边栏 如文章的侧栏
+<footer> 表示页脚
+
+4.
+placeholder 占位符
+
+autofocus 自动聚焦
+
+required 必填项
+
+autocomplete 自动完成
+
+pattern 自定义正则验证
+
+muttiple 文件多选
+
+form 知道表单所属的表单域(表单可以写的表单外面)
+
+novalidate 用于表单自带的验证功能,只能用于form
+
+oninput 用户输入内容时触发，可用于移动端输入字数统计
+
+oninvalid 验证不通过时触发 
+
+autoplay 自动播放 controls 控制条 loop 循环播放
+
+document.querySelector  通过选择器来获取网页的元素
+
+注意点:获取符号条件的第一个元素,参数可以是任意合法的css选择器
+
+document.querySelector.All 获取符号条件的所有元素,参数可以是任意合法的css选择器,返回的数据是伪数组方式
+
+5.DOM拓展 类名操作
+h5 js新增的操作类名方式
+ box.classList.add() 添加类名
+ box.classList.remove() 移除类名
+ box.classList.contain() 判断是否包含指定类名
+ box.classList.toggle() 切换类名
+
+h5中自定义语法规范:以data-开头
+
+作用:存储数据
+
+新增的操作自定义属性的方法:datdset ['']
+
+oninput 用户输入内容时触发，可用于移动端输入字数统计
+oninvalid 验证不通过时触发 ,通常用于设置验证不通过时的提示文字
+
+5-14选择器
+ li:first-child:选中li的父盒子下面的第一个子盒子
+ li:last-child:选中li的父盒子下面的最后一个子盒
+ li:nth-child(n):选中li的父盒子下面的第n个子盒子
+ li:nth-last-child(n): 从后向前选中第n个子元素
+ n 是从0开始正整数 0,1,2,3,4,5....  n小于1是无效的
+
+ 偶数： 2n  even   奇数：2n+1 2n-1  odd
+ 7n
+ -n+5 选中前5个
+
+www.5iweb.com.cn
+
+
+私有前缀
+1.谷歌 苹果:-webkit-linear-gradiend
+1.火狐:-moz-linear-gradiend
+3.ie:-ms-linear-gradiend
+4.欧鹏:-o-linear-gradiend
+5.标准:linear-gradiend
+
+5-16
+1-边框 border
+    边框的圆角：
+        border-radius:
+
+        border-top-left-raudius  : 水平半径 垂直半径
+        border-top-left-radius: 50px 100px;
+        border-top-right-radius: 50px 100px;
+        border-bottom-left-radius: 50px 100px;
+        border-bottom-right-radius: 50px 100px;
+
+        border-radius:水平半径/垂直半径  30px/60px
+        赋值顺序：
+            从左上开始 顺时针赋值，如果这个角没有值，取对角的值
+
+    边框的阴影：
+        box-shadow:水平位移 垂直位移  模糊程度  阴影大小 阴影的颜色 inset;
+
+2-背景  background
+    背景的尺寸
+        background-size:
+            100px 100px
+            50%  50%
+            cover 保证会铺满盒子，有可能不完全显示背景图片
+            contain 保证背景图片会完整的等比例的 包含在盒子中，有可能不会铺满盒子
+
+    背景的原点
+          background-origin
+            content-box
+            paddding-box
+            border-box
+          用于设置背景图片从哪个盒子开始平铺
+
+    背景裁剪
+         backgound-clip
+            content-box
+            paddding-box
+            border-box
+         用于设置背景图片从哪个盒子开始裁剪
+
+    多个背景
+        一个盒子可以设置多个背景，
+           背景的语法格式正常书写，多个背景之间使用逗号隔开；
+           背景层级：先写的背景在上面，后写的在下面；
+
+3-渐变  gradient
+    渐变属于background-image属性
+    线性渐变：linear-gradient
+        background-image:linear-gradient(方向,起始颜色,终止颜色);
+            方向： to  left  right  top bottom  30deg
+
+    径向渐变：radial-gradient
+        background-image:radial-gradient(辐射半径 中心点位置,起始颜色,终止颜色);
+            辐射半径： 50px 圆    50px  100px  椭圆2
+            中心位置： at  left  center   right  top  center   bottom   50px 5px
+
+
+4-2d 变换transform
+    缩放 scale
+        scale(水平缩放比例，垂直缩放比例）
+        如果只有一个值，等比例缩放  不能为百分比
+
+
+    旋转 rotate   角度 deg
+        正值  顺时针
+        负值  逆时针
+
+    位移 translate
+        tranlate(水平位移，垂直位移）；
+              -100px  40px
+              50%，50%  百分比是相对于自身的宽高而言的
+              如果只有一个值 水平位移
+
+              -50%  向左走自己的宽度一半
+              transform: translate(-50%);
+              同样可以让定位的盒子局中
+
+    扭曲 skew
+        skew(水平角度，垂直角度);
+
+
+        如果多个属性发生过渡，多个属性连写，之间使用空格隔开
+        transform:translate(-200px,200px)  rotate(45deg);
+
+    设置变换中心：
+         transform-origin：
+            取值：left  top center  right bottom    50px 50px；
+5-17
+1、3d变换
+
+    rotateX() 沿着x轴旋转
+    rotateY() 沿着y轴旋转
+    rotateZ() 沿着z轴旋转
+
+    translateX() 沿x轴位移
+    translateY() 沿Y轴位移
+    translateZ() 沿Z轴位移  translateZ 需要配合透视使用 perspective
+
+
+    旋转方向：
+        对着正方向去看 都是顺时针旋转
+
+    backface-visibility:hidden 背面不可见
+
+    伪元素 获取自定义属性的值
+        content:attr(data-text);
+        // 自定义属性的作用 存储数据
+        <span data-text="传">传</span>
+
+    透视
+         如果希望看到  3d效果 需要添加透视 近大远小
+         透视 设置是 盒子 和 用户眼睛的距离，加给变换元素的父盒子
+         透视的值越大效果越不明显  perspective:1000px;
+
+         透视产生的3d效果,只是视觉上的呈现，并不是真正的3d
+
+
+    真正的3d的盒子
+        让子盒子保持真正的3d效果
+        transform-style:perserve-3d;
+        注意点：加给 父盒子
+
+动画：
+      css3中也可以来定义动画
+
+                和 js使用函数类似     先定义 在调用
+
+                function say(){}
+
+                定义动画：
+
+                @keyframes  动画名称{
+                    from{
+                        起始状态
+                    }
+                    to{
+                        结束状态
+                    }
+                }
+
+
+                @keyframes 动画名称{
+                    0%{
+
+                    }
+                    30%{
+
+                    }
+
+                    100%{
+
+                    }
+                }
+
+
+                调用动画
+
+      animation: 动画名称 持续时间 ；
+
+
+                  调用动画: 动画名称 持续时间 执行次数  是否反向 延迟执行 运动曲线..
+
+                  动画名称： animation-name: move
+                  单次动画执行时间：animation-duration: 2s;
+                  重复次数  animation-iteration-count: 1;   infinite 无数次
+                  动画方向：animation-direction    alternate：交替  normal正常的
+                  动画延迟：animation-delay: 1s;
+                  动画结束后的所保持的状态：
+                  animation-fill-mode:
+                      backwards:保持动画开始前的状态
+                      forwards:保持动画结束后的状态
+                  运动曲线：animation-timing-function
+                    linear 运算  ease-in-out :先加速后减速  steps
+                    steps(ｎ) 让动画分步完成
+                    animation-timing-function: steps(15);
+
+
+            动画的播放状态 ：paused 暂停 running 运行
+                    animation-play-state: paused;
+
+
+5-20
+
+1、视频
+    属性：
+         paused: 视频的播放暂停状态
+         duration:视频的总时长
+         currentTime:当前播放时间
+
+    方法： play() 播放
+           pause()暂停
+    事件：
+        oncanplay： 当视频加载完成之后
+        ontimeupdate: 当视频当前时间 改变之后触发
+
+    全屏：
+        video.webkitRequsetFullScreen();
+
+ 2、拖拽：
+    （1、需要设置拖拽：draggable="true"
+    （2、拖拽元素：
+        ondragstart: 拖拽开始
+        ondragend:拖拽结束
+        ondragleave: 当鼠标拖拽离开 被拖拽元素时
+        ondrag:　当拖拽时，持续触发
+    （3、目标元素：
+        ondragenter:当被拖拽元素进入目标元素时
+        ondragleave:当鼠标进入目标元素时
+        ondragover: 当被拖拽元素在目标元素上时，持续触发
+            --> e.preventDefault(); 阻止拖拽的默认行为；
+        ondrop:当在目标元素上松开鼠标时触发；
+
+3、地理定位API
+
+    navigator.geoloaction.getCurrentPosition(successCallback, errorCallback)获取当前地理信息
+   
+    （1、当成功获取地理信息后，会调用succssCallback，
+        并返回一个包含位置信息的对象position。Coords(坐标)
+        position.coords.latitude纬度
+        position.coords.longitude经度
+    （2、当获取地理信息失败后，会调用errorCallback，并返回错误信息error
+
+
+4、web存储
+        cookie : 4k  解析复杂
+        window.sessionStorage  会话存储
+            生命周期为关闭浏览器窗口
+            在同一个窗口下数据可以共享
+            sessionStorage约5M
+        window.localStorage 本地存储
+            永久生效，除非手动删除
+            可以多窗口共享
+            localStorage约20M
+        方法详解
+            setItem(key, value) 设置存储内容
+            getItem(key) 读取存储内容
+            removeItem(key) 删除键值为key的存储内容
+            clear() 清空所有存储内容
+
+5、网络状态    
+       window.ononline用户网络连接时被调用
+       Window.onoffline用户网络断开时被调用
+
+6、文件操作：
+
+FileList对象
+	HTML5中通过为表单元素添加multiple属性实现文件多选，因此通过<input type="file">上传文件后得到的FileList对象是以伪数组形式存在。
+  input.files[0]
+
+
+FileReader对象  var fr=new FileReader();
+	HTML5新增内建对象，用以读取本地文件。
+	属性：result文件读取的结果
+	事件：onload文件读取结束
+	readAsText()：将文件以文本方式读取，读取的结果为这个文本文件中的内容。
+	readAsDataURL()： 以URL的形式读取文件信息。
+
+
+7、我的密钥(yue):
+  NsGTBiDpgGQpI7KDmYNAPGuHWGjCh1zk
+  ovxzhP5jX4qRUboF86IOlRCnai0whIje
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
